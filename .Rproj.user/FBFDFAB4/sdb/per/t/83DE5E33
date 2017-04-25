@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1493078461674.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "83DE5E33",
+    "lastKnownWriteTime" : 4300078064,
+    "last_content_update" : 1493078461674,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "context" : ".GlobalEnv:::login"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_code_browser"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#Figure out how to download data from medinfrared\n\ninstall.packages(\"rvest\")\nlibrary(rvest)\nlego_movie <- html(\"http://www.imdb.com/title/tt1490017/\")\nvignette(\"selectorgadget\")\n\nhtml <- read_html(\"http://medinfrared.com/Admin/Default.aspx\")\ncast <- html_nodes(html, \"td:nth-child(7) input\")\nlength(cast)\n\nhtml_text(cast)\nbrowseURL(\"http://medinfrared.com/Admin/Default.aspx\")\nbrowseURL(\"https://www.r-project.org\")\n\ninstall.packages(\"RJSONIO\")\ninstall.packages(\"rjson\")\ninstall.packages(\"RCurl\")\nlibrary(RJSONIO)\nlibrary(rjson)\nlibrary(RCurl)\n\n\nlibrary(httr)\nlibrary(XML)\n\nhandle <- handle(\"http://medinfrared.com/Login.aspx?ReturnUrl=%2fAdmin%2fDashboard.aspx\") \npath   <- \"amember/login.php\"\n\n# fields found in the login form.\nlogin <- list(\n  amember_login = \"username\"\n  ,amember_pass  = \"password\"\n  ,amember_redirect_url = \n    \"http://subscribers.footballguys.com/myfbg/myviewprojections.php?projector=2\"\n)\n\nresponse <- POST(handle = handle, path = path, body = login)\n\n",
+    "created" : 1493060184466.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2479094992",
+    "id" : "A2146BC5",
+    "lastKnownWriteTime" : 1493080200,
+    "last_content_update" : 1493080200698,
+    "path" : "~/Documents/jmostovoy.github.io/Medinfrared.R",
+    "project_path" : "Medinfrared.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
