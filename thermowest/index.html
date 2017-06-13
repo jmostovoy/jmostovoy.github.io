@@ -1,86 +1,72 @@
----
-layout: default
----
-<div class="home">
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ML Project - 2017</title>
 
-<div class="site-header-container {% if site.cover %}has-cover{% endif %}" {% if site.cover %}style="background-image: url({{ site.cover | prepend: site.baseurl }});"{% endif %}>
-  <div class="scrim {% if site.cover %}has-cover{% endif %}">
-    <header class="site-header">
-      <h1 class="title">{{ site.title }}</h1>
-      {% if site.subtitle %}<p class="subtitle">{{ site.subtitle }}</p>{% endif %}
-    </header>
-  </div>
-</div>
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+  <div class="wrapper">
 
-<div class="wrapper">
-<ul class="post-list">
-  {% for post in paginator.posts %}
-  <li>
-    <h2>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </h2>
-    <section class="post-excerpt" itemprop="description">
-      <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
-    </section>
-    <section class="post-meta">
-      <div class="post-date">{{ post.date | date: "%B %-d, %Y" }}</div>
-      <div class="post-categories">
-      {% if post.categories.size > 0 %}in {% for cat in post.categories %}
-        {% if site.jekyll-archives %}
-        <a href="{{ site.baseurl }}/category/{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-        {% else %}
-        <a href="{{ site.baseurl }}/posts/#{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-        {% endif %}
-      {% endfor %}{% endif %}
-      </div>
-    </section>
-  </li>
-  {% if forloop.last == false %}
-  <hr>
-  {% endif %}
-  {% endfor %}
+      <h1 id="ml_project_2017">ML Project - 2017</h1>
+
+<p><img style="height:250px;" src="http://jmostovoy.github.io/images/Riemann.png" /></p>
+    
+<h2 id="website_statment">This (sub-) website was created for the purpose of orginizing and reporting on progress on the devolpment and implementation of Phase 1 for TCI's ML Reporting Software.</h2>
+
+<h3 id="plan_and_progress_reports">Please find below a progress report and overall plan:</h3>
+    
+<ul>
+  <li> Monday April 24: Conduct a literature review of relevant deep learning networks; continue with data extraction from sql database.</li>
+  <li> Tuesday April 25: Continue with data extraction from sql database, begin data cleaning. </li>
+  <li> Wednesday April 26: Continue with data cleaning/orginization. </li>
 </ul>
 
-<nav class="pagination" role="navigation">
-	<p>
-    {% if paginator.previous_page %}
-			{% if paginator.page == 2 %}
-			<a class="newer-posts" href="{% if site.baseurl %}{{ site.baseurl }}{% endif %}/">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square fa-stack-2x"></i>
-          <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-        </span>
-      </a>
-			{% else %}
-			<a class="newer-posts" href="{{ site.baseurl }}/page{{paginator.previous_page}}">
-				<span class="fa-stack fa-lg">
-					<i class="fa fa-square fa-stack-2x"></i>
-					<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-				</span>
-			</a>
-			{% endif %}
-		{% else %}
-		<span class="fa-stack fa-lg">
-      <i class="fa fa-square fa-stack-2x"></i>
-      <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-    </span>
-		{% endif %}
-		<span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-		{% if paginator.next_page %}
-		<a class="newer-posts" href="{{ site.baseurl }}/page{{paginator.next_page}}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-square fa-stack-2x"></i>
-        <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-		{% else %}
-		<span class="fa-stack fa-lg">
-      <i class="fa fa-square fa-stack-2x"></i>
-      <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-    </span>
-		{% endif %}
-	</p>
-</nav>
+<h3 id="list_of_requirements"> Here's a (working) list of programs we're either going to have to adapt from a package, or create. This list is also compiled in chronological order - I.e., it is recommended to work on developing the first Incomplete program listed. </h3>
+<ul>
+  <li> Automatic Downloading from Website | Status = COMPLETE </li>
+  <li> Mass File Unzipping Software (Capable of unzipping 24,000 files at once) | Status = NOT STARTED </li>
+  <li> Automatic matching function for pdf files and unzipped client data files | Status = NOT STARTED </li>
+  <li> Reading PDFs and extracting certain data - most importantly TH-score and explanation for said score. Also should extract client name, DOB, date of examination, etc. | Status = STARTED (very elementary learning how to read PDFs) </li>
+  <li> Extract necessary images for each patient and put into format easy for analysis | Status = NOT STARTED </li>
+  <li> Extract additional patient indicators from their personal docs storred in (now unzipped) files  | Status = NOT STARTED </li>
+  <li> Create lists which contain the following information orginized by report #: client name, DOB, images, patient indicators, etc. | Status = NOT STARTED </li>
+  <li> Create different model based on the now well orginized list, test against TH-score fitting accuracy | Status = NOT STARTED </li>
+  <li> Create different highly specified models which are able to predict TH-score explanations | Status = NOT STARTED </li>
+  <li> Create a Neural Network to optimize and specify which of the above tests to use and how to use them properly for an over TH-score and score explanation | Status = NOT STARTED </li>
+  <li> Determine if overall model works "well enough", and continue iff it does, otherwise revisit previous 3 steps | Status = NOT STARTED </li>
+  <li> Automating the report writing given a new system for inputs from clinics, and our now finished model (likely on LaTeX with the support of Amazon Web Services to run our likely R program constantly) | Status = NOT STARTED </li>
+</ul>
+    
+    
+<h3 id="resources"> Resources: </h3>
 
-</div>
-</div>
+Please see my <a href="https://github.com/jmostovoy/Medical_Imaging">seperate repository </a> for all programs written / used. In addition, we have the following external helpful resources:
+
+<h4 id="Literature"> Literature: </h4>
+<ul>
+  <li><a href="/ml/docs/literature/deep_learning_retinopathy.pdf">A paper on using deep learning to detect diabetic retinopathy
+from retinal fundus photographs </a> </li>
+  <li><a href="/ml/docs/literature/retno_supp.pdf">Supplemental docs for above paper</a> </li>
+  <li>Technical Papers:<li>
+           <ul>
+               <li><a href="/ml/docs/literature/convolutional_networks.pdf">Convolutional Networks</a></li>
+           </ul>
+</ul>
+
+<h4 id="Textbooks"> Textbooks: </h4>
+<ul>
+  <li><a href="/ml/docs/textbooks/intro_to_ml.pdf">Intro to ML Textbook</a> </li>
+  <li><a href="/ml/docs/textbooks/intro_monte_carlo.pdf">Introducing Monte Carlo Methods with R Textbook</a> </li>
+  <li><a href="/ml/docs/textbooks/bishop_ml.pdf">Bishop's ML Textbook</a> </li>
+</ul>
+
+  </div>
+  </body>
+</html>
